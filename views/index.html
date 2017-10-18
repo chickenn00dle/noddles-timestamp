@@ -10,9 +10,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome to Glitch!</title>
-    <meta name="description" content="A cool thing made with Glitch">
-    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <title>Timestamp Microservice</title>
+    <meta name="description" content="Timestamp Microservice">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,26 +20,33 @@
   <body>
     <header>
       <h1>
-        A Dream of the Future
+        Timestamp Microservice
       </h1>
     </header>
 
     <main>
-      <p class="bold">Oh hi,</p>
-      <p>Tell me your hopes and dreams:</p>
-      <form>
-        <input type="text" maxlength="100" placeholder="Dreams!">
-        <button type="submit">Submit</button>
-      </form>
-      <section class="dreams">
-        <ul id="dreams">
-        </ul>
-      </section>
+      <p class="bold">Welcome to <a href="https://twitter.com/ChickenN00dle" target="_blank">Chickenn00dle</a>'s Timestamp Microservice.</p>
+      <p>Using the provided URL, add date parameters in either Unix or Natural Language formats and the service will return both the Unix and Natural Language dates in JSON format.</p>
+      <div class="box">
+        <p>
+          Example:
+        </p>
+        <p><strong>
+          <a href="https://timestamp-ms.herokuapp.com/December%2015,%202015">https://timestamp-ms.herokuapp.com/December%2015,%202015</a> or,<br />
+          <a href="ttps://timestamp-ms.herokuapp.com/1450137600">https://timestamp-ms.herokuapp.com/1450137600</a>
+        </strong></p>
+        <p>
+          Should result in:
+        </p>
+        <p><strong>
+          { "unix": 1450137600, "natural": "December 15, 2015" }
+        </strong></p>
+      </div>
     </main>
 
     <footer>
-      <a href="https://glitch.com">
-        Remix this in Glitch
+      <a href="https://twitter.com/ChickenN00dle">
+        Check me out on Twitter
       </a>
     </footer>
 
