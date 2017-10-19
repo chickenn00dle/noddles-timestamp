@@ -2,11 +2,11 @@
 // where your node app starts
 
 // init project
-var express = require('express');
-var moment = require('moment');
-var port = 8000;
+const express = require('express');
+const moment = require('moment');
+const port = 8000;
 
-var app = express();
+const app = express();
 
 app.use(express.static('public'));
 
@@ -16,19 +16,27 @@ app.get('/', (req, res) => {
 
 app.get('/:date', (req, res) => {
   if (req.params) {
-    var param = req.params.date;
-    if (moment(param).isValid()){
-      var unix = moment(param).unix();
-      var natural = moment(param).format('MMMM D, YYYY');
+    let param = req.params.date,
+        unix,
+        natural;
+    
+    if (moment.unix(param).isValid()){
+      unix = param;
+      natural = moment.unix(param).format('MMMM DD, YYYY');
+    } else if (moment(param).isValid()) {
+      unix = moment(param).format('X');
+      natural = param;
     } else {
-      var unix = null;
-      var natural = null;
+      unix = null;
+      natural = null;
     }
     
-    res.send({
+    let json = {
       "unix": unix,
       "natural": natural
-    });
+    }
+    
+    res.send(json);
     
   }
 });
@@ -37,7 +45,7 @@ app.put("/:date", (req, res) => {
   console.log(req.params);
 });
 
-var listener = app.listen(process.env.PORT, (err, res) => {
+const listener = app.listen(process.env.PORT, (err, res) => {
   if (err) throw err;
   console.log('Your app is listening on port ' + listener.address().port);
 });
