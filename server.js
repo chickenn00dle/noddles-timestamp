@@ -17,8 +17,8 @@ app.get('/', (req, res) => {
 app.get('/:date', (req, res) => {
   if (req.params) {
     let param = req.params.date,
-        unix,
-        natural;
+        unix = null,
+        natural = null;
     
     if (moment.unix(param).isValid()){
       unix = param;
@@ -26,9 +26,6 @@ app.get('/:date', (req, res) => {
     } else if (moment(param).isValid()) {
       unix = moment(param).format('X');
       natural = param;
-    } else {
-      unix = null;
-      natural = null;
     }
     
     let json = {
