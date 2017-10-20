@@ -4,7 +4,6 @@
 // init project
 const express = require('express');
 const moment = require('moment');
-const port = 8000;
 
 const app = express();
 
